@@ -31,6 +31,7 @@
     <div class="yellow">承認・コミュニティ参加申請・フレンド申請</div>
   </div>
   <div class="bar"> </div>
+  @if($community->user_id === Auth::id())
   <div class="gr2">
     <div>
       <table class="sinsei">
@@ -55,6 +56,7 @@
         @endforeach
       </table>
     </div>
+    @endif
     <div>
       <table class="sinsei">
         <tr>
@@ -65,7 +67,8 @@
         </tr>
         @foreach($friends as $friend)
         <tr>
-         <form action="/friends" method="POST">
+         <form action="/friends/{{ $friend->id }}" method="POST">
+           <input type="hidden" name="_method" value="PUT">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <th class="grey">{{ $friend->created_at }}</th>
           <th>{{ $friend->user_id}}</th>

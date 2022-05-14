@@ -50,7 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
     
     
      // フレンド申請関係
-    Route::resource('friends', 'FriendsController', ['only' => ['index', 'create', 'store',]]); 
+    Route::resource('friends', 'FriendsController', ['only' => ['index', 'create', 'store', 'update']]); 
 
     //　コミュニティ申請関係
     Route::group(['prefix' => 'communities/{id}'], function () {

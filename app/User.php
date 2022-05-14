@@ -96,7 +96,7 @@ class User extends Authenticatable
     
     
     
-    //このユーザーが所有するフレンド申請一覧　（Friendモデルとの1対多の関係を定義）
+    //このユーザー友達一覧
     public function friends()
     {
         return $this->hasMany(Friend::class);

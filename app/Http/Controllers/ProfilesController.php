@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Profile;
+use App\Friend;
 use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
@@ -92,8 +93,9 @@ class ProfilesController extends Controller
      */
     public function show(Profile $profile)
     {
+        $friends = Friend::where('user_id', \Auth::id())->where('status', 1)->get();
         // dd('profile show');
-        return view('profiles.show', compact('profile'));
+        return view('profiles.show', compact('profile', 'friends'));
     }
 
     /**

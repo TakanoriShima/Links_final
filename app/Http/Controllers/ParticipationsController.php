@@ -27,9 +27,11 @@ class ParticipationsController extends Controller
         //そのコミュニティに参加申請・承認・却下しているユーザー一覧
         $participations = $community->participations()->where('status', 0)->get();
         
-        $user  = \Auth::id();
+        $user  = \Auth::user();
         
-        $friends = $user->friends()->where('status', 0)->get();
+        // $friends = $user->friends()->where('status', 0)->get();
+        $friends = Friend::where('friend_id', \Auth::id())->where('status', 0)->get();
+        // SELECT * friends WHERE friend_id=2 AND status = 0;
         
         // $user = User::find(2);
         // $friends = $user->friends()->where('status', 0)->get();

@@ -95,6 +95,14 @@ class FriendsController extends Controller
         // return view('topics.show', compact('topic','posts', 'participation'));
     }
     
+    public function update(Request $request, $id){
+        $friend = Friend::find($id);
+        $status = $request->input('status');
+        $friend->status = $status;
+        $friend->save();
+        return redirect('/mypage')->with('flash_message', 'フレンド承認・非承認を行いました。');
+    }
+    
     
     
     

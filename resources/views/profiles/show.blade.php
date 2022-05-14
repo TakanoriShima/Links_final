@@ -2,7 +2,7 @@
 <html lang="ja">
  <head>
   <meta charset="UTF-8">
-    <title>プロフィール登録</title>
+    <title>マイプロフィール</title>
     <link rel="stylesheet" href="{{ asset('/css/myprofile.css')}}">
   </head>
   <body>
@@ -30,26 +30,30 @@
       </ul>
     </div>
     <div class="photogr">
-      <div class="photoA">
-        <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">
-      </div>
-      <div class="photoA">
-        <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">
-      </div>
-      <div class="photoA">
-        <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">
-      </div>
-    </div>
-    <div class="photogr2">
-      <div class="photoB">
-        <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">
-      </div>
-      <div class="photoB">
-        <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">
-      </div>
-      <div class="photoB">
-        <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">
-      </div>
+        @foreach($friends as $friend)
+        <div class="photoA"><img class="syoki" src="{{ asset('/uploads/' . App\User::find($friend->friend_id)->profile->image)}}">
+        </div>
+        @endforeach
+    <!--  <div class="photoA">-->
+    <!--    <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">-->
+    <!--  </div>-->
+    <!--  <div class="photoA">-->
+    <!--    <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">-->
+    <!--  </div>-->
+    <!--  <div class="photoA">-->
+    <!--    <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">-->
+    <!--  </div>-->
+    <!--</div>-->
+    <!--<div class="photogr2">-->
+    <!--  <div class="photoB">-->
+    <!--    <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">-->
+    <!--  </div>-->
+    <!--  <div class="photoB">-->
+    <!--    <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">-->
+    <!--  </div>-->
+    <!--  <div class="photoB">-->
+    <!--    <img class="syoki" src="{{ asset('/images/smiley.png') }}" alt="フレンド">-->
+    <!--  </div>-->
     </div>
       <table class="example">
         <tr>
